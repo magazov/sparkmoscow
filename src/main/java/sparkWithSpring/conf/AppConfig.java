@@ -1,5 +1,7 @@
 package sparkWithSpring.conf;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SQLContext;
@@ -26,7 +28,10 @@ public class AppConfig {
 
     @Bean
     public JavaSparkContext sc(){
-        return new JavaSparkContext(sparkConf);
+        JavaSparkContext javaSparkContext = new JavaSparkContext(sparkConf);
+        javaSparkContext.setLogLevel("WARN");
+        Logger.getRootLogger().setLevel(Level.OFF);
+        return javaSparkContext;
     }
 
 

@@ -35,10 +35,6 @@ public class PopularWordsCounterImplTest {
         JavaRDD<String> rdd = sc.textFile("data/songs/califronia.txt");
         Tuple2<Integer, String> topX = counter.topX(rdd);
         System.out.println("topX = " + topX);
-        while (true) {
-
-        }
-
     }
 
     @Test
